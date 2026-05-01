@@ -1,0 +1,26 @@
+{
+  "repo": {
+    "name": "zeimee-lp",
+    "owner": "VCL-in",
+    "url": "https://github.com/VCL-in/zeimee-lp",
+    "created_at": "2026-03-17T08:49:37Z",
+    "language": "HTML",
+    "stars": 0,
+    "description": "zeimee ランディングページ",
+    "fork": false,
+    "archived": false
+  },
+  "readme": null,
+  "root_files": [
+    ".gitignore",
+    "index.html",
+    "screenshot3.js",
+    "zeimee-landing-page.html",
+    "zeimee-landing-page.png",
+    "screenshots"
+  ],
+  "simulation": {
+    "reference_date": "2026-03-18T00:00:00Z",
+    "note": "翌日（2026-03-18）に実行した場合のタイムスリップシミュレーション"
+  }
+}

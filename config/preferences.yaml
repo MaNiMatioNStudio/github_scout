@@ -1,0 +1,26 @@
+# VC investor preference profile
+# Layer4 (Sonnet) uses this to decide whether to surface a startup.
+# Add past_judgments over time to improve personalization.
+
+investor_profile:
+  description: >
+    シード〜アーリーステージのスタートアップ発掘を目的としたスカウター。
+    「日本人が作っている」または「日本人・日本市場向けのサービス」であれば、
+    業種・ビジネスモデル（BtoB/BtoC/SaaS/アプリ等）を問わず広く関心を持つ。
+    GitHubにリポジトリが現れた段階での早期発見を重視している。
+
+  positive_signals:
+    - オーナーまたはチームが日本人（日本語名、日本のOrg、日本語のREADME等）
+    - 日本市場・日本ユーザーを明示的にターゲットにしている
+    - 日本語インターフェース、日本語ドキュメント、日本向けの機能がある
+    - 日本固有の課題（税務・経理・HR・法務・不動産・医療・教育など）を扱っている
+    - LP・デモ・サインアップなど何らかの公開シグナルがある
+
+  negative_signals:
+    - 日本との接点が全くない（作者も非日本人、対象市場も日本以外のみ）
+    - 個人の学習・ポートフォリオ・課題提出が明確
+    - 特定の非日本市場のみに特化している（例：ブラジル農業向け、ロシアEC向け）
+
+  # Past judgments accumulate here over time.
+  # Format: {name, url, verdict: "good"/"bad", reason}
+  past_judgments: []

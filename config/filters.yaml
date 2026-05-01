@@ -1,0 +1,125 @@
+# GitHub Startup Scout — filter configuration
+# All filter conditions are defined here, not in Python code.
+
+layer1:
+  # Repo must have been created within this many days
+  max_age_days: 7
+
+  # Star count range (inclusive)
+  min_stars: 0
+  max_stars: 20
+
+  # Only repos written in these languages pass (empty list = allow all)
+  allowed_languages:
+    - TypeScript
+    - JavaScript
+    - Python
+    - Go
+    - Rust
+    - HTML
+
+  # Repos whose name OR description contains any of these words are excluded
+  # (case-insensitive, substring match)
+  exclude_keywords:
+    - tutorial
+    - practice
+    - leetcode
+    - sandbox
+    - "test"
+    - boilerplate
+    - clone
+    - portfolio
+    - homework
+    - assignment
+    - course
+    - exercise
+    - template
+    - sample
+
+layer2:
+  # Files whose presence in the repo root earns +0.5 per match
+  required_files:
+    - package.json
+    - requirements.txt
+    - Dockerfile
+    - docker-compose.yml
+    - vercel.json
+    - next.config.js
+    - next.config.ts
+    - pyproject.toml
+    - go.mod
+    - Cargo.toml
+
+  # Files / directory names whose presence earns +0.3 per match
+  # Supports fnmatch patterns (e.g. "vite.config.*")
+  signal_files:
+    - "vite.config.*"
+    - src
+    - app
+    - pages
+    - public
+    - api
+    - backend
+    - frontend
+    - server
+    - client
+
+  # Keywords in README or description that indicate a real product → +0.5 per match
+  positive_keywords:
+    - product
+    - platform
+    - api
+    - agent
+    - automation
+    - pricing
+    - "sign up"
+    - "get started"
+    - waitlist
+    - dashboard
+    - saas
+    - b2b
+    - b2c
+    - mvp
+    - launch
+    - deploy
+    - production
+    - enterprise
+    - subscription
+    - billing
+
+  # Keywords that indicate a non-product repo → -1.0 per match
+  negative_keywords:
+    - portfolio
+    - tutorial
+    - course
+    - template
+    - boilerplate
+    - "demo only"
+    - "for learning"
+    - "school project"
+    - "class project"
+    - "practice project"
+    - "follow along"
+    - "following along"
+
+  # LP repo signal: +1.0 if HTML repo with multiple branded HTML files
+  lp_signal_bonus: 2.0
+
+  # New org signal: +1.0 if owner org was created within this many days
+  new_org_max_days: 180
+  new_org_bonus: 1.0
+
+  # Description quality: +0.5 if description is at least this many chars
+  description_min_length: 10
+  description_quality_bonus: 0.5
+
+  # Minimum score to pass Layer2
+  min_score: 3.0
+
+layer3:
+  # score >= pass_threshold → Japan確定
+  pass_threshold: 3
+  # score < fail_threshold → 日本との接点なし
+  fail_threshold: 1
+  # ownerのGitHubプロフィール(location/blog/bio)を取得するか (Tier2シグナル)
+  fetch_owner_profile: true
